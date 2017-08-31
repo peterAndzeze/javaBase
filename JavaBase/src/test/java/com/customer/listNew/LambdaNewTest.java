@@ -26,6 +26,9 @@ public class LambdaNewTest {
     public void listSort(){
         lambdaNew.listSort();
     }
-
+    @Test
+    public void mapTest(){
+        lambdaNew.map();
+    }
 
 }
