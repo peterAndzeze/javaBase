@@ -1,5 +1,0 @@
-jvm的配置改变
-使用Metaspace（JEP 122）代替持久代（PermGen space）。在JVM参数方面，
-使用-XX:MetaSpaceSize和-XX:MaxMetaspaceSize代替原来的-XX:PermSize和-XX:MaxPermSize。
-
-Java 8提供了一些新的命令行工具，这部分会讲解一些对开发者最有用的工具。
