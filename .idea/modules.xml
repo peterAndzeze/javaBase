@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/customer-javabase.iml" filepath="$PROJECT_DIR$/customer-javabase.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaBase/src/main/main.iml" filepath="$PROJECT_DIR$/JavaBase/src/main/main.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaBase/src/test/test.iml" filepath="$PROJECT_DIR$/JavaBase/src/test/test.iml" />
     </modules>
