@@ -1,5 +1,8 @@
 package com.customer.thread.keywords.volatilet;
 
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 /**
  *  保证原子性
  */
@@ -11,10 +14,17 @@ public class VolatileAtomic2 {
     private volatile int number=0;
 
     /**
-     * 第一种方式 增加synchronized 关键字
+     * 第二种方式 增加lock锁
      */
-    public synchronized void addPlus(){
-        number++;
+    Lock lock=new ReentrantLock();
+    public  void addPlus(){
+        lock.lock();
+        try {
+            number++;
+        }finally {
+            lock.unlock();
+        }
+
     }
 
     public static void main(String[] args) {

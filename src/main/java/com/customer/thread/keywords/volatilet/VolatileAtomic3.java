@@ -1,7 +1,6 @@
 package com.customer.thread.keywords.volatilet;
 
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  *  保证原子性
@@ -11,20 +10,13 @@ public class VolatileAtomic3 {
      * volatile 不保证原子性
      * 原子性定义：数据的一致性 完整性
      */
-    private volatile int number=0;
+    private volatile AtomicInteger number=new AtomicInteger(0);
 
     /**
-     * 第二种方式 增加lock锁
+     * 第三种方式 原子类操作
      */
-    Lock lock=new ReentrantLock();
     public  void addPlus(){
-        lock.lock();
-        try {
-            number++;
-        }finally {
-            lock.unlock();
-        }
-
+            number.getAndIncrement();
     }
 
     public static void main(String[] args) {
