@@ -38,9 +38,9 @@ public class CycliBarrierTest {
 
     public static void main(String[] args) {
         CyclicBarrier cyclicBarrier=new CyclicBarrier(5);
-        for (int i = 0; i <5 ; i++) {
-           // new MyThread("面试者-"+(i+1),cyclicBarrier).start();
-        }
+      /*  for (int i = 0; i <5 ; i++) {
+            new MyThread("面试者-"+(i+1),cyclicBarrier).start();
+        }*/
         for (int i = 0; i <5 ; i++) {
             new MyNormalThread("面试者-"+(i+1)).start();
         }

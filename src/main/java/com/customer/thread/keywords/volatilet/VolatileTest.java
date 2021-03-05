@@ -8,7 +8,7 @@ public class VolatileTest {
      * volatile 不保证原子性
      * 原子性定义：数据的一致性 完整性
      */
-    private volatile int number=0;
+    private volatile  int number=0;
 
     /**
      * 增加
@@ -19,7 +19,7 @@ public class VolatileTest {
 
     public static void main(String[] args) {
         VolatileTest volatileTest=new VolatileTest();
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i <100; i++) {
             new Thread(()->{
                 for (int j = 0; j <1000 ; j++) {
                     volatileTest.addPlus();
@@ -30,9 +30,8 @@ public class VolatileTest {
          * 默认后台两个线程 一个main 一个GC
          */
         while (Thread.activeCount()>2){
-            /**
-             * 等待其他线程执行完毕 在执行main 和GC线程
-             */
+           /* *
+             * 等待其他线程执行完毕 在执行main 和GC线程*/
             Thread.yield();
         }
         // 如果volatile保证原子性的话，最终的结果应该是20000

@@ -30,7 +30,7 @@ public class CountDownLatchTest {
         /**
          * 初始化5个工作线程
          */
-        CountDownLatch latch=new CountDownLatch(5);
+        CountDownLatch latch=new CountDownLatch(30);
         new MyThread("线程1", latch).start();
         new MyThread("线程2", latch).start();
         new MyThread("线程3", latch).start();

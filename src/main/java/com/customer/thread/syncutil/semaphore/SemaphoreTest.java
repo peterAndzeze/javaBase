@@ -30,7 +30,8 @@ public class SemaphoreTest {
          * 工作线程每归还一份资源，就在该对象上记录
          * 此时资源信息可以被其他线程shying
          * 另外的函数myresources.release(2),释放指定数目的许可，
-         * 并将它们归还给信标。 可用许可数加上该指定数目。 如果线程需要获取N个许可，在有N个许可可用之前，该线程阻塞。 12345678910111213141516
+         * 并将它们归还给信标。 可用许可数加上该指定数目。 如果线程需要获取N个许可，
+         * 在有N个许可可用之前，该线程阻塞。 12345678910111213141516
          *
          */
         myresources.release();
@@ -53,7 +54,7 @@ public class SemaphoreTest {
      */
 
     public static void main(String[] args) {
-        Semaphore semaphore=new Semaphore(1);
+        Semaphore semaphore=new Semaphore(3);
         for (int i = 0; i <5 ; i++) {
            new MyThread("学生-"+(i+1),semaphore).start();
         }

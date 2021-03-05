@@ -13,12 +13,12 @@ public class ThreadMethodMain {
      */
     public static void main(String[] args) throws InterruptedException {
         JoinThread joinThread=new JoinThread();
-        JoinThread2 joinThread2=new JoinThread2();
-        joinThread2.start();
+        JoinThread2 joinThread2=new JoinThread2("线程2");
         joinThread.start();
+        joinThread2.start();
         joinThread2.join();
-
         System.out.println("main thread  ----》 is over");
+
     }
 
 }

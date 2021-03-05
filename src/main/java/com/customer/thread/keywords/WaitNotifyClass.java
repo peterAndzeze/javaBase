@@ -17,6 +17,8 @@ public class WaitNotifyClass   {
         }
     }
 
+
+
     /**
      * 当前对象回答完毕后 才能执行下一个问题
      */

@@ -29,7 +29,7 @@ public class MyThread extends Thread {
             cyclicBarrier.await();
             Thread.sleep(random.nextInt(2000));
             System.out.println(Thread.currentThread().getName()+"-已经面试结束");
-            super.run();
+            super.run();//不加不可以
         }catch (InterruptedException e){
             e.printStackTrace();
         } catch (BrokenBarrierException e) {
