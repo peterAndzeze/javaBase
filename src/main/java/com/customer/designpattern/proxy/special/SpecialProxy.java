@@ -6,8 +6,8 @@ package com.customer.designpattern.proxy.special;
 public class SpecialProxy implements SpecialSubjectInterface {
     private SpecialSubjectInterface specialSubjectInterface;
 
-    public SpecialProxy(String name) {
-        specialSubjectInterface=new SpecialSubject(name);
+    public SpecialProxy(SpecialSubjectInterface specialSubjectInterface) {
+        this.specialSubjectInterface=specialSubjectInterface;
     }
 
     @Override

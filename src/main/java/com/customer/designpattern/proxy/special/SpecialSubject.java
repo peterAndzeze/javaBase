@@ -27,7 +27,6 @@ public class SpecialSubject implements SpecialSubjectInterface {
     }
 
     private boolean isProxy(){
-        System.out.println(this.proxy);
         if(this.proxy==null){
             return false;
         }
@@ -36,7 +35,7 @@ public class SpecialSubject implements SpecialSubjectInterface {
 
     @Override
     public SpecialSubjectInterface getProxy() {
-        this.proxy=new SpecialProxy(this.name);
+        this.proxy=new SpecialProxy(this);
         return this.proxy;
     }
 }
