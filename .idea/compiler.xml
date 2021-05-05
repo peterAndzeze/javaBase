@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="customer-javabase" />
+        <module name="javabase" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="customer-javabase" target="1.8" />
+      <module name="javabase" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
