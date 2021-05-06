@@ -1,11 +1,15 @@
 package com.customer.thread.keywords;
 
+import org.openjdk.jol.info.ClassLayout;
+
 /**
  * synchronized 关键字
  * @author sw
  *
  */
 public class SynchronizedClass {
+    private int a=10;
+
     /**
      * 锁如何实现？
      * 在对象头里，有一块数据叫Mark Word。在64位机器上，Mark Word是8字节（64位）的，这64位
@@ -38,4 +42,14 @@ public class SynchronizedClass {
             System.out.println("synchronized  static method");
         }
     }
+
+    public static void main(String[] args) {
+        SynchronizedClass o=new SynchronizedClass();
+        o.a=12;
+        System.out.println(ClassLayout.parseInstance(o).toPrintable());
+        synchronized (o){
+            System.out.println(ClassLayout.parseInstance(o).toPrintable());
+        }
+    }
+
 }

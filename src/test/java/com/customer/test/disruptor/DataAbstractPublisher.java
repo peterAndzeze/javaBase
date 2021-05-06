@@ -1,0 +1,49 @@
+package com.customer.test.disruptor;
+
+import com.customer.thread.disruptor.DisruptorProviderManage;
+import com.customer.thread.disruptor.executor.DataConsumerExecutor;
+import com.customer.thread.disruptor.provider.DisruptorProvider;
+import com.customer.thread.disruptor.publisher.DataPublisher;
+
+import java.util.Collections;
+import java.util.List;
+
+public abstract class DataAbstractPublisher<T> implements DataPublisher<T> {
+    private DisruptorProviderManage providerManage;
+
+    private DataConsumerExecutor.DataExecutorFactory factory;
+
+
+    /**
+     * 核心线程数 作为 外部引用程序的参数配置项
+     */
+    public void start() {
+        factory = new DataConsumerExecutor.DataExecutorFactory("异步通知");
+        factory.addSubscribers(new  NotifyOrderSubscriber());
+        providerManage = new DisruptorProviderManage(factory, 1, providerManage.DEFAULT_SIZE);
+        providerManage.startup();
+    }
+    @Override
+    public <T> void publish(T t) {
+        DisruptorProvider<Object> provider = providerManage.getProvider();
+        List<T> ts = Collections.singletonList(t);
+        provider.onData(f -> f.setData(ts));
+    }
+
+
+    @Override
+    public <T> void publishList(T t) {
+        DisruptorProvider<Object> provider = providerManage.getProvider();
+        provider.onData(f -> f.setData(t));
+    }
+
+
+
+    /**
+     * 关闭线程
+     */
+    @Override
+    public void close() {
+        providerManage.getProvider().shutdown();
+    }
+}
