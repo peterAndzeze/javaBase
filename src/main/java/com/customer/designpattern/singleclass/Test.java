@@ -94,8 +94,8 @@ public class Test {
 
 
     public static void enumMethod() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
-        EnumA enumA=EnumA.a;
-        EnumA enumA1=EnumA.a;
+        EnumA enumA=EnumA.INSTANCE;
+        EnumA enumA1=EnumA.INSTANCE;
         System.out.println("正常情况下，实例化两个实例是否相同：" + (enumA == enumA1));
         /**
          * 使用构造函数反射验证是否是线程安全及同一个实例的
@@ -129,7 +129,7 @@ public class Test {
      * @throws ClassNotFoundException
      */
     public  static void serializableEnumMethod() throws IOException, ClassNotFoundException {
-        EnumA enumA=EnumA.a;
+        EnumA enumA=EnumA.INSTANCE;
         //写
         ObjectOutputStream oos=new ObjectOutputStream(new FileOutputStream("hello world"));
         oos.writeObject(enumA);

@@ -18,9 +18,22 @@ public class B1 {
      */
     public synchronized static B1 getInstance(){
         if(null==b){
+            try {
+                Thread.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             b=new B1();
         }
         return b;
+    }
+
+    public static void main(String[] args) {
+        for (int i = 0; i <100 ; i++) {
+            new Thread(()->{
+                System.out.println(B1.getInstance().hashCode());
+            }).start();
+        }
     }
 
 }

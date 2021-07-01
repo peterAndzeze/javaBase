@@ -23,10 +23,23 @@ public class B2 {
     public  static B2 getInstance(){
         if(null==b){
             synchronized (B2.class) {
+                try {
+                    Thread.sleep(1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 b = new B2();
             }
         }
         return b;
     }
 
+
+    public static void main(String[] args) {
+        for (int i = 0; i <100 ; i++) {
+            new Thread(()->{
+                System.out.println(B2.getInstance().hashCode());
+            }).start();
+        }
+    }
 }

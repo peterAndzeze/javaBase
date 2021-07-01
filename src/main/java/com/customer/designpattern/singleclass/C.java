@@ -26,6 +26,11 @@ public class C {
         if(null==c){
             synchronized (C.class) {
                 if(null==c){
+                    try {
+                        Thread.sleep(1);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     c = new C();
                 }
             }
@@ -55,4 +60,12 @@ public class C {
     }
 
 
+
+    public static void main(String[] args) {
+        for (int i = 0; i <100 ; i++) {
+            new Thread(()->{
+                System.out.println(C.getInstance().hashCode());
+            }).start();
+        }
+    }
 }

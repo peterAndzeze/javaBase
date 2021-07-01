@@ -1,4 +1,4 @@
-package com.customer.designpattern.mediator;
+package com.customer.designpattern.mediatorandfacde;
 
 /**
  * 通用中介者，即通用函数实现

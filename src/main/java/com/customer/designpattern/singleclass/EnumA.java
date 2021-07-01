@@ -1,12 +1,12 @@
 package com.customer.designpattern.singleclass;
 
 /**
- * 枚举类单例模式 推荐 线程安全
+ * 枚举类单例模式 推荐 线程安全/防止序列化
  */
 public enum EnumA {
-    a;
+    INSTANCE;
     public EnumA getInstances(){
-        return a;
+        return INSTANCE;
     }
 }
 

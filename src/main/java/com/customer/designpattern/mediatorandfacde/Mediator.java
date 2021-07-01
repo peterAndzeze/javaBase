@@ -1,4 +1,4 @@
-package com.customer.designpattern.mediator;
+package com.customer.designpattern.mediatorandfacde;
 
 /**
  * 中介者模式

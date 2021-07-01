@@ -19,9 +19,23 @@ public class B {
      */
     public static B getInstance(){
         if(null==b){
+            try {
+                Thread.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             b=new B();
         }
         return b;
     }
+
+    public static void main(String[] args) {
+        for (int i = 0; i <100 ; i++) {
+            new Thread(()->{
+                System.out.println(B.getInstance().hashCode());
+            }).start();
+        }
+    }
+
 
 }

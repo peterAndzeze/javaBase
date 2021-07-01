@@ -1,4 +1,4 @@
-package com.customer.designpattern.mediator;
+package com.customer.designpattern.mediatorandfacde;
 
 /**
  * 通用抽象同事类
