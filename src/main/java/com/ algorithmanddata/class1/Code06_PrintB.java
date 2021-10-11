@@ -1,4 +1,4 @@
-package datastructurealgorithm;
+package com.algorithmanddata.class1;
 
 /**
  * @className: Code06_PrintB
@@ -14,7 +14,6 @@ public class Code06_PrintB {
             System.out.print((num&(1<<i))==0?"0":"1");
         }
     }
-
 
 
     public static void main(String[] args) {
@@ -37,5 +36,8 @@ public class Code06_PrintB {
         print(2);
         System.out.println("*****");
         print(1+2);
+
+        System.out.println("*****");
+
     }
 }
