@@ -1,6 +1,5 @@
 package com.customer.function;
 
-import javafx.event.ActionEvent;
 
 import java.util.EventListener;
 
@@ -11,5 +10,5 @@ import java.util.EventListener;
  * @date: 2021/9/30
  **/
 public interface ActionListener extends EventListener {
-    public void actionPerformed(ActionEvent event);
+    public void actionPerformed(Object event);
 }
