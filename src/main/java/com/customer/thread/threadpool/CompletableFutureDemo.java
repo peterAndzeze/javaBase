@@ -14,6 +14,11 @@ public class CompletableFutureDemo {
                 person.setFlag(false);
             }
             System.out.println("返回中间结果:"+person);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             return person;
         }).thenApply(new Function<Person, String>() {
             @Override

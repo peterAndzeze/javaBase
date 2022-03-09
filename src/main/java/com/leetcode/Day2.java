@@ -1,4 +1,4 @@
-package com.datastructurealgorithm.leetcode;
+package com.leetcode;
 
 /**
  * @className: Day2

@@ -35,7 +35,7 @@ public class CountDownLatchTest {
         new MyThread("线程2", latch).start();
         new MyThread("线程3", latch).start();
         new MyThread("线程4", latch).start();
-         new MyThread("线程5", latch).start();
+        new MyThread("线程5", latch).start();
         // 当前线程等待
         try {
             latch.await();
