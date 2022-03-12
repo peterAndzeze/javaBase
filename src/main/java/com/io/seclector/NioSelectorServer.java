@@ -32,7 +32,7 @@ public class NioSelectorServer {
         serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
         System.out.println("服务端启动完成******");
         while (true){
-            //6 检查选择器是否有事件 (空转问题)
+            //6 检查选择器是否有事件 (空转问题 epoll 类),此处会阻塞（）
             int select = selector.select(2000);
             if(0==select){
                 System.out.println("没有事件发生");
