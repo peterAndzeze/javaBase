@@ -1,4 +1,4 @@
-package com.io.netty.twouse;
+package com.io.netty.codec;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
@@ -31,7 +31,8 @@ public class NettyClientHandler implements ChannelInboundHandler {
      */
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        ChannelFuture channelFuture = ctx.writeAndFlush(Unpooled.copiedBuffer("my is client", CharsetUtil.UTF_8));
+        // 消息内容直接是String 交给编码器统一进行编码
+        ChannelFuture channelFuture = ctx.writeAndFlush("my is client");
         channelFuture.addListener(new ChannelFutureListener() {
             @Override
             public void operationComplete(ChannelFuture future) throws Exception {
@@ -58,8 +59,8 @@ public class NettyClientHandler implements ChannelInboundHandler {
      */
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        ByteBuf byteBuf=(ByteBuf)msg;
-        System.out.println("服务端发送过来的消息:"+ byteBuf.toString(CharsetUtil.UTF_8));
+        // 数据已经被转码 所以 直接使用
+        System.out.println("服务端发送过来的消息:"+ msg);
 
     }
 
