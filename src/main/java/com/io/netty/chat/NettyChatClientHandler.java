@@ -19,8 +19,7 @@ public class NettyChatClientHandler extends SimpleChannelInboundHandler<String> 
      */
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
-        String remote = ctx.channel().remoteAddress().toString().substring(1);
-        System.out.println("["+remote+"]"+"说:"+msg);
+        System.out.println(msg);
     }
 
     /**
